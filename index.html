@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario de Agua</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-container">
+    <header class="app-header">
+      <div class="header-icon" aria-hidden="true">💧</div>
+      <div class="header-text">
+        <h1>Calendario de Agua</h1>
+        <p class="header-subtitle">Planifica y consulta las fechas previstas de llegada del agua</p>
+      </div>
+    </header>
+
+    <section class="calendar-card" aria-labelledby="current-month-label">
+      <!-- Navegación del mes -->
+      <nav class="calendar-nav" aria-label="Navegación del calendario">
+        <button type="button" id="btn-prev-month" class="nav-btn" aria-label="Mes anterior">
+          <span aria-hidden="true">&#8592;</span> Anterior
+        </button>
+
+        <h2 id="current-month-label" class="month-title" aria-live="polite">Octubre 2026</h2>
+
+        <div class="nav-right-controls">
+          <button type="button" id="btn-today" class="today-btn" aria-label="Ir al mes actual">
+            Hoy
+          </button>
+          <button type="button" id="btn-next-month" class="nav-btn" aria-label="Mes siguiente">
+            Siguiente <span aria-hidden="true">&#8594;</span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Leyenda informativa -->
+      <section class="legend-container" aria-label="Leyenda de estados">
+        <div class="legend-item">
+          <span class="legend-swatch swatch-water" aria-hidden="true">💧</span>
+          <span class="legend-text">Llegará agua</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-swatch swatch-none" aria-hidden="true"></span>
+          <span class="legend-text">Sin programación</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-swatch swatch-today" aria-hidden="true"></span>
+          <span class="legend-text">Día actual</span>
+        </div>
+      </section>
+
+      <!-- Cuadrícula del Calendario -->
+      <div class="calendar-wrapper">
+        <!-- Encabezados de días de la semana (Lunes a Domingo) -->
+        <div class="weekdays-grid" aria-hidden="true">
+          <div class="weekday-header">Lun</div>
+          <div class="weekday-header">Mar</div>
+          <div class="weekday-header">Mié</div>
+          <div class="weekday-header">Jue</div>
+          <div class="weekday-header">Vie</div>
+          <div class="weekday-header">Sáb</div>
+          <div class="weekday-header">Dom</div>
+        </div>
+
+        <!-- Celdas de días del mes -->
+        <div id="calendar-days" class="days-grid" aria-label="Días del mes">
+          <!-- Generado dinámicamente por app.js -->
+        </div>
+      </div>
+
+      <!-- Barra de estado, notificaciones y persistencia -->
+      <footer class="calendar-footer">
+        <!-- Notificación accesible para mensajes de éxito, error o avisos de storage -->
+        <div id="status-message" class="status-message hidden" role="status" aria-live="polite"></div>
+
+        <div class="footer-status-row">
+          <div class="badges-group">
+            <span id="selected-count-badge" class="badge badge-count">
+              0 fechas con agua
+            </span>
+            <span id="dirty-state-badge" class="badge badge-clean">
+              Sin cambios pendientes
+            </span>
+          </div>
+
+          <div class="action-bar">
+            <button type="button" id="btn-save-changes" class="btn-save" disabled>
+              Guardar cambios
+            </button>
+          </div>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

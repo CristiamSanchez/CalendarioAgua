@@ -1,0 +1,14 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de entorno y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs y capturas temporales
+*.log
+scratch/
+screenshot*.png
